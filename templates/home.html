@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Intro Text -->
+<div class="intro-text white-text">
+    <h2>Share your passion for Books</h2>
+    <p>
+        <span>Book<span class="">Worm</span></span> gives you the chance to write book reviews and condensed summaries
+        about the books insights. You can create lists of your favourite books and share it with other <span>Book<span
+                class="">Worm</span></span> users.
+    </p>
+    {% if not user %}
+    <a class="" href="">Sign Up</a>
+    {% endif %}
+</div>
+<img class="hide-on-small-only" src=""
+    alt="">
+{% endblock %}
