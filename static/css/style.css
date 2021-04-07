@@ -155,7 +155,7 @@ footer {
     color: #030416;
     border: 1px solid #000000;
     background: rgb(0,255,207);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 8px 12px;
     font-weight: 700;
     -webkit-transition: .3s;
@@ -178,4 +178,88 @@ footer {
     width: 400px;
     -o-object-fit: contain;
        object-fit: contain;
+}
+/*----------------- BookWorm container -------------------*/
+
+.bookworm-container /* reused throughout the website*/ {
+    height: 80%;
+    width: 80%;
+    background: -o-radial-gradient(circle, rgb(239, 250, 252) 0%, rgb(174, 230, 240) 100%);
+    background: radial-gradient(circle,     rgb(239, 250, 252) 0%, rgb(174, 230, 240) 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(247, 247, 247, 0.856);
+            box-shadow: 0px 5px 10px 2px rgba(247, 247, 247, 0.856);
+    overflow-y: scroll;
+}
+
+/*--------------- SIGN UP / LOGIN -----------------*/
+
+.image-container,
+.container-login {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+}
+
+.image-container img {
+    width: 60%;
+    height: auto;
+}
+
+.sign-up-btn{
+    display: block;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 150px;
+    height: 42px;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    border: none;
+    margin: 0 auto;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    -o-transition: transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    cursor: pointer;
+    background-color: rgb(0,255,207);
+}
+
+.btn-sign-up:hover,
+.btn-back:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.30);
+            box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.30);
+}
+
+.account {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+            transform: translate(-50%);
+    text-align: center;
+    min-width: 130px;
+}
+
+.account a {
+    color: rgb(255,79,0);
+}
+
+.account a:hover {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    cursor: pointer;
 }
