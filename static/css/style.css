@@ -110,3 +110,71 @@ footer {
     transform: scale(1.2);
     color: #1DA1F2;
 }
+
+/*----------------- home -------------------*/
+
+.home-text-container {
+    position:absolute;
+    left: 8%;
+    top: 18%;
+    width: 30%;
+    max-width: 420px;
+}
+
+.home-text-container h2 {
+    font-size: 2rem;
+}
+.home-text-container p{
+    font-size: 1.4rem;
+}
+.home-text-container > p > span {
+    font-weight: 500;
+    font-family: "Mukta", sans-serif;
+}
+
+.home-text-container > p > span > span{
+    color: #030416;
+}
+
+.home-text-container a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto;
+}
+
+.redirect-sign-up {
+    display: inline;
+    width: 120px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #030416;
+    border: 1px solid #000000;
+    background: rgb(0,255,207);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: 700;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.redirect-sign-up:hover {
+    -webkit-box-shadow: 0px 0px 15px 0px rgb(0,255,207);
+            box-shadow: 0px 0px 15px 0px rgb(0,255,207);
+    background: #fff;
+    border: 1px solid rgb(0,255,207);
+}
+
+.home-img {
+    position: absolute;
+    right: 4%;
+    bottom: 8%;
+    height: 400px;
+    width: 400px;
+    -o-object-fit: contain;
+       object-fit: contain;
+}
