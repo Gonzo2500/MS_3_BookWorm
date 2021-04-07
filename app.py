@@ -48,7 +48,6 @@ def sign_up():
         mongo.db.users.insert_one(sign_up)
 
         # session cookie for the new user
-    
         session["user"] = request.form.get("username").lower()
         flash("Hi, {}. Welcome to books'world.".format(
                         request.form.get("username").capitalize()))
@@ -56,6 +55,32 @@ def sign_up():
         return redirect(url_for(
             "profile", username=session["user"]))
     return render_template("sign_up.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if username already exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password equals the user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                return redirect(url_for(
+                    "profile", username=session["user"]))
+            else:
+                # flash message for incorrect password
+                flash("Incorrect Username or Password, please try again")
+                return render_template("login.html")
+
+        else:
+            # username does not exist
+            flash("Username does not exist")
+            return render_template("login.html")
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
