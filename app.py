@@ -49,9 +49,9 @@ def sign_up():
 
         # session cookie for the new user
         session["user"] = request.form.get("username").lower()
-        flash("Hi, {}. Welcome to books'world.".format(
+        flash("Hi, {}. Welcome to BookWorm.".format(
                         request.form.get("username").capitalize()))
-        flash("Click on the add button and create your fisrt book summary")
+        flash("Click on the add button and create your first book review")
         return redirect(url_for(
             "profile", username=session["user"]))
     return render_template("sign_up.html")
@@ -96,6 +96,12 @@ def profile(username):
             "profile.html", username=username, books=books)
 
     return redirect(url_for("login"))
+
+
+@app.route("/log_out")
+def log_out():
+    session.pop("user")
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
