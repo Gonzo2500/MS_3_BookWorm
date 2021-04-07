@@ -98,6 +98,20 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/book_add", methods=["GET", "POST"])
+def book_add():
+    if request.method == "POST":
+        book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "img_url": request.form.get("img_url"),
+            "book_review": request.form.get("book_review"),
+            "created_by": session["user"]
+        }
+        mongo.db.Books.insert_one(book)
+        return redirect("/profile/<username>")
+
+
 @app.route("/log_out")
 def log_out():
     session.pop("user")
