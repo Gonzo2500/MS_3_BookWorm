@@ -2,17 +2,17 @@
 {% block content %}
 
 <!-- Intro Text -->
-<div class="white-text">
+<div class="home-text-container white-text">
     <h2>Share your passion for Books</h2>
     <p>
-        <span>Book<span class="">Worm</span></span> gives you the chance to write book reviews and condensed summaries
+        <span>Book<span >Worm</span></span> gives you the chance to write book reviews and condensed summaries
         about the books insights. You can create lists of your favourite books and share it with other <span>Book<span
-                class="">Worm</span></span> users.
+                >Worm</span></span> users.
     </p>
     {% if not user %}
-    <a class="" href="">Sign Up</a>
+    <a class="redirect-sign-up" href="{{ url_for('sign_up') }}">Sign Up</a>
     {% endif %}
 </div>
-<img class="hide-on-small-only" src="static/images/home-img.png"
+<img class="hide-on-small-only home-img" src="static/images/home-img.png"
     alt="">
 {% endblock %}
