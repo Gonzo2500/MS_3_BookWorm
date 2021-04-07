@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="bookworm-container">
+    <div class="bookworm-container row">
         <div class="container-login col s12 m8 offset-m2 l6">
             <div class="row">
                 <form class="col s12 l8 offset-l2" method="POST" action="{{ url_for('sign_up') }}">
@@ -28,7 +28,7 @@
 
                         <!-- Submit Button -->
                         <button type="submit" class="sign-up-btn">
-                            Sign Up <i class="fas fa-sign-in-alt white-text"></i>
+                            Sign Up <i class="fas fa-sign-in-alt"></i>
                         </button>
                     </div>
                 </form>
@@ -37,9 +37,9 @@
 
         <div class="image-container col m6 hide-on-med-and-down">
             <img src="static/images/password.png" alt="woman standing in front of a screen and enters the password">
+        </div>
             <div class="account">
                 <p>Already have an account? <a href="{{ url_for('login') }}">Log In here</a></p>
             </div>
         </div>
-    </div>
     {% endblock %}
