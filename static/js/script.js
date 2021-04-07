@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 // Add book modal
 function startModalBooks() {
-    const modal = document.querySelector(".container-modal")
+    const modal = document.querySelector(".modal-container")
     modal.classList.add("show-modal");
 
     modal.addEventListener("click", (e) => {
