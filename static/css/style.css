@@ -326,6 +326,7 @@ footer {
     font-size: 0.8rem;
     margin-top: 3px;
 }
+
 /*----------------- Book View Page -------------------*/
 
 .book-container {
@@ -427,6 +428,89 @@ footer {
 #delete-book, .delete-btn{
     background-color: rgb(255,79,0);
 }
+/*----------------- My Books Page -------------------*/
+
+.list-title {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.list-title > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.list-title i {
+    margin: 0 20px;
+}
+
+.list-title a,
+.buy-btn {
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-width: 105px;
+    margin-right: 20px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.list-names {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+    position: relative;
+}
+
+.container-book-lists {
+    margin: 80px 5px 0 5px;
+}
+
+.container-book-lists ul,
+.container-discover ul {
+    padding: 0 !important;
+}
+
+.switch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.switch i {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.welcome-user {
+    text-align: center;
+    padding: 5px;
+}
+
+.welcome-user ul {
+    display: inline-block;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.welcome-user li {
+    list-style-type: circle !important;
+}
+
 /*----------------- Modals -------------------*/
 
 .modal-container{
