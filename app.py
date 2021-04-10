@@ -141,6 +141,20 @@ def delete_book(book_id):
     return redirect("/profile/<username>") 
 
 
+@app.route("/my_books/<username>", methods=["GET", "POST"])
+def my_books(username):
+    # get the session user's username from database
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    # get the session user's books from database
+    book_lists = list(mongo.db.Book_in_lists.find({'created_by': username}))
+
+    if session["user"]:
+        return render_template(
+            "my_books.html", username=username, book_lists=book_lists)
+
+    return redirect(url_for("login"))
+
 @app.route("/log_out")
 def log_out():
     session.pop("user")
