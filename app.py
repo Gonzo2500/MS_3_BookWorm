@@ -112,6 +112,35 @@ def book_add():
         return redirect("/profile/<username>")
 
 
+@app.route("/view_book/<book_name>")
+def view_book(book_name):
+    book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
+    return render_template("view_book.html", book=book)
+
+
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
+    if request.method == "POST":
+        edited_book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "img_url": request.form.get("img_url"),
+            "book_review": request.form.get("book_review"),
+            "created_by": session["user"]
+        }
+        mongo.db.Books.update({"_id": ObjectId(book_id)}, edited_book)
+
+    book = mongo.db.Books.find_one({"_id": ObjectId(book_id)})
+    return render_template("view_book.html", book=book)
+
+
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.Books.remove({"_id": ObjectId(book_id)})
+    flash("Book succesfully deleted.")
+    return redirect("/profile/<username>") 
+
+
 @app.route("/log_out")
 def log_out():
     session.pop("user")
