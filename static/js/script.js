@@ -1,5 +1,7 @@
 $(document).ready(function () {
+    $("#selectedTest").formSelect();
     $('.sidenav').sidenav({ edge: "right" });
+    $('.tooltipped').tooltip();
 });
 
 // Add book modal
