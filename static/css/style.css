@@ -232,6 +232,7 @@ footer {
     transition: transform 0.5s, -webkit-transform 0.5s;
     cursor: pointer;
     background-color: rgb(0,255,207);
+    color: #030416
 }
 
 .btn-sign-up:hover,
@@ -325,6 +326,107 @@ footer {
     font-size: 0.8rem;
     margin-top: 3px;
 }
+/*----------------- Book View Page -------------------*/
+
+.book-container {
+    margin: 80px 40px 0 40px;
+}
+.book-container img {
+    height: 375px;
+    width: 250px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+}
+
+.book-container h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.book-container h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin: 0 0 10px 0;
+}
+
+.book-container p {
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.edit-buttons,
+.delete-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 10px;
+}
+
+.edit-buttons a,
+.delete-buttons a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.edit-buttons a {
+    width: 110px;
+    height: 50px;
+}
+
+.edit-buttons i,
+.delete-buttons i {
+    margin-left: 5px;
+}
+
+.edit-buttons a:hover,
+.delete-buttons a:hover {
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.30);
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.30);
+}
+
+.edit-buttons a:active,
+.delete-buttons a:active,
+.sign-up:active,
+.btn-back:active,
+.list-title a:active,
+.buy-btn:active {
+    -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+            transform: scale(0.9);
+}
+
+#edit-book{
+    background-color: rgb(0,49,255);
+}
+
+#delete-book, .delete-btn{
+    background-color: rgb(255,79,0);
+}
 /*----------------- Modals -------------------*/
 
 .modal-container{
@@ -410,6 +512,80 @@ footer {
 
 .close-modal:focus {
     background: #fafafa;
+}
+
+.delete{
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+        align-items: start;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.modal-delete{
+    position: relative;
+    height: auto;
+    width: 500px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 20px 5px;
+}
+
+.close-delete-modal{
+    color: rgb(0,49,255);
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 8px;
+}
+
+@-webkit-keyframes delete-modal {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-100px);
+                transform: translateY(-100px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+@keyframes delete-modal {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-100px);
+                transform: translateY(-100px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
+}
+
+.show-modal .modal-delete {
+    -webkit-animation: modal .5s;
+            animation: modal .5s;
+}
+
+.delete-buttons a {
+    width: 95px;
+    height: 40px;
 }
 /*----------------- Flash Messages -------------------*/
 .flash-message {
