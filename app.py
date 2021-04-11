@@ -180,12 +180,57 @@ def list_view(list_name):
     # Append new book into a book list
     book_objects_list = []
     for book in book_list['books']:
-        book_item = mongo.db.Lists.find_one({'_id': ObjectId(book)})
+        book_item = mongo.db.Books_in_list.find_one({'_id': ObjectId(book)})
         book_objects_list.append(book_item)
 
     return render_template(
         "list_view.html",
         book_list=book_objects_list, list=book_list, username=username)
+
+
+@app.route("/edit_list/<list_id>", methods=["GET", "POST"])
+def edit_list(list_id):
+    if request.method == "POST":
+
+        # Only uptade list_name and share_list fields in the book lists
+        mongo.db.Listsupdate_one(
+            {"_id": ObjectId(
+                list_id)}, {"$set": {"list_name": request.form.get(
+                    "list_name"), "share_list": request.form.get(
+                        "share_list")}})
+
+    list = mongo.db.Lists.find_one({"_id": ObjectId(list_id)})
+    return redirect(url_for("list_view", list=list, list_name=list["_id"]))
+
+
+# Delete booklist
+@app.route("/delete_list/<list_id>")
+def delete_list(list_id):
+    mongo.db.Lists.remove({"_id": ObjectId(list_id)})
+    return redirect("/my_books/<username>")
+
+
+# Add a new book into the database and into a list of books
+@app.route("/add_book_in_list/<list_name>", methods=["GET", "POST"])
+def add_book_in_list(list_name):
+    if request.method == "POST":
+        book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "img_url": request.form.get("img_url"),
+            "vendor_url": request.form.getlist("vendor_url"),
+            "created_by": session["user"]
+        }
+
+        # Insert ObjectID from a book into a determined book list
+        book_id = mongo.db.Books_in_list.insert_one(book).inserted_id
+        mongo.db.Lists.update(
+            {'_id': ObjectId(list_name)}, {'$push': {'books': book_id}})
+
+        book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+
+    return redirect(url_for("list_view", list_name=book_list["_id"]))
+
 
 
 @app.route("/log_out")
