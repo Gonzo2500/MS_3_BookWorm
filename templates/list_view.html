@@ -31,11 +31,11 @@
                 </div>
 
                 <!-- Add field button-->
-                <a class="btn green darken-3 white-text add-field-button">Add Vendor</a>
+                <a class="add-field-button">Add Vendor</a>
 
                 <!-- Submit Button -->
                 <div class="row">
-                    <button type="submit" class="btn-sign-up white-text deep-purple">Save  <i class="fas fa-save white-text"></i></button>
+                    <button type="submit" class="sign-up-btn">Save  <i class="fas fa-save white-text"></i></button>
                 </div>
             </form>
             <!-- Close Modal -->
@@ -71,7 +71,7 @@
 
                     <!-- Submit Button -->
                     <div class="row">
-                        <button type="submit" class="btn-sign-up white-text deep-purple">Save  <i class="fas fa-save white-text"></i></button>
+                        <button type="submit" class="sign-up-btn">Save  <i class="fas fa-save white-text"></i></button>
                     </div>
                 </form>
             </div>
@@ -101,7 +101,7 @@
             
         <div class="book-lists-container row">
             
-            <div class="col s12 center-align deep-purple-text">
+            <div class="col s12 center-align">
                 <h1>{{ list.list_name }}</h1>
                 <!-- The user who created the list does not need to see their name, because they know who created it  -->
                 {% if session.user|lower != list.created_by|lower %}
@@ -113,7 +113,7 @@
                     
                     {% for book in book_list %}
                     <div class="book-cover col s12 m6 l4 xl3">
-                        <a href="{{ url_for('book_info',list_name=list._id, book_name=book._id) }}"><img src="{{ book.img_url }}" alt="{{ book.book_name }}'s cover"></a>
+                        <a href=""><img src="{{ book.img_url }}" alt="{{ book.book_name }}'s cover"></a>
                         <div class="book-title">
                             <p>{{ book.book_name }}</p>
                             <p>{{ book.book_author }}</p>
