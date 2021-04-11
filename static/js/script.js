@@ -67,3 +67,25 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 })
+
+// Add list modal
+function startModalEditList() {
+    const modal = document.querySelector(".modal-container")
+    modal.classList.add("show-modal");
+
+    modal.addEventListener("click", (e) => {
+        if (e.target.id == "modal-edit-list" || e.target.className == "close-modal") {
+            modal.classList.remove("show-modal")
+        }
+    })
+}
+
+// Event listener that starts add list modal
+document.addEventListener('DOMContentLoaded', function () {
+    const editList = document.getElementById("edit-list")
+    if (editList) {
+        editList.addEventListener("click", () => {
+            startModalEditList()
+        })
+    }
+})
