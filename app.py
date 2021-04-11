@@ -231,6 +231,12 @@ def add_book_in_list(list_name):
 
     return redirect(url_for("list_view", list_name=book_list["_id"]))
 
+@app.route("/book_info/<list_name>/<book_name>")
+def book_info(list_name, book_name):
+    # book_lists = list(mongo.db.Lists.find()) CHECK IF WILL BE USED
+    book = mongo.db.Books_in_list.find_one({"_id": ObjectId(book_name)})
+    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+    return render_template("book_info.html", book=book, list=book_list)
 
 
 @app.route("/log_out")
