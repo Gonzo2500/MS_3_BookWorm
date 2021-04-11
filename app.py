@@ -231,12 +231,45 @@ def add_book_in_list(list_name):
 
     return redirect(url_for("list_view", list_name=book_list["_id"]))
 
+
 @app.route("/book_info/<list_name>/<book_name>")
 def book_info(list_name, book_name):
     # book_lists = list(mongo.db.Lists.find()) CHECK IF WILL BE USED
     book = mongo.db.Books_in_list.find_one({"_id": ObjectId(book_name)})
     book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
     return render_template("book_info.html", book=book, list=book_list)
+
+
+# Edit book from list
+@app.route("/edit_book_in_list/<list_name>/<book_id>", methods=["GET", "POST"])
+def edit_book_in_list(list_name, book_id):
+    if request.method == "POST":
+        edited_book = {
+            "book_name": request.form.get("book_name"),
+            "book_author": request.form.get("book_author"),
+            "img_url": request.form.get("img_url"),
+            "vendor_url": request.form.getlist("vendor_url"),
+            "created_by": session["user"]
+        }
+        mongo.db.Books_in_list.update({"_id": ObjectId(book_id)}, edited_book)
+
+    book = mongo.db.Books_in_list.find_one({"_id": ObjectId(book_id)})
+    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+    return render_template("book_info.html", book=book, list=book_list)
+
+
+@app.route("/delete_book_in_list/<list_name>/<book_id>")
+def delete_book_in_list(list_name, book_id):
+    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+    """
+    Delete ObjectID from a book in the 'books' field
+    from a specific list of books
+    """
+    mongo.db.Books_in_list.remove({"_id": ObjectId(book_id)})
+    mongo.db.Lists.update(
+            {'_id': ObjectId(
+                list_name)}, {'$pull': {'books': ObjectId(book_id)}})
+    return redirect(url_for("list_view", list_name=book_list["_id"]))
 
 
 @app.route("/log_out")
