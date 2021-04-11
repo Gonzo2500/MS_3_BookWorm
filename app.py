@@ -138,7 +138,7 @@ def edit_book(book_id):
 def delete_book(book_id):
     mongo.db.Books.remove({"_id": ObjectId(book_id)})
     flash("Book succesfully deleted.")
-    return redirect("/profile/<username>") 
+    return redirect("/profile/<username>")
 
 
 @app.route("/my_books/<username>", methods=["GET", "POST"])
@@ -147,13 +147,46 @@ def my_books(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     # get the session user's books from database
-    book_lists = list(mongo.db.Book_in_lists.find({'created_by': username}))
+    book_lists = list(mongo.db.Lists.find({'created_by': username}))
 
     if session["user"]:
         return render_template(
             "my_books.html", username=username, book_lists=book_lists)
 
     return redirect(url_for("login"))
+
+
+@app.route("/add_list", methods=["GET", "POST"])
+def add_list():
+    if request.method == "POST":
+        share_list = "on" if request.form.get("share_list") else "off"
+        list = {
+            "list_name": request.form.get("list_name"),
+            "share_list": share_list,
+            "created_by": session["user"],
+            "books": []
+        }
+        mongo.db.Lists.insert_one(list)
+        return redirect("/my_books/<username>")
+
+
+@app.route("/list_view/<list_name>")
+def list_view(list_name):
+    # get book lists from datase
+    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    # Append new book into a book list
+    book_objects_list = []
+    for book in book_list['books']:
+        book_item = mongo.db.Lists.find_one({'_id': ObjectId(book)})
+        book_objects_list.append(book_item)
+
+    return render_template(
+        "list_view.html",
+        book_list=book_objects_list, list=book_list, username=username)
+
 
 @app.route("/log_out")
 def log_out():
