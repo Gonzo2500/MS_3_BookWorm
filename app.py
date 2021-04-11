@@ -272,6 +272,12 @@ def delete_book_in_list(list_name, book_id):
     return redirect(url_for("list_view", list_name=book_list["_id"]))
 
 
+@app.route("/recommendation")
+def recommendation():
+    book_lists = list(mongo.db.Lists.find())
+    return render_template("recommendation.html", book_lists=book_lists)
+
+
 @app.route("/log_out")
 def log_out():
     session.pop("user")
