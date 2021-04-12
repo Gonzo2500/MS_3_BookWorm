@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+  
+	<div class="bookworm-container row">
+        <!-- Search Bar -->
+        <div class="row">
+            <div class="container-search col s12 m10 offset-m1 l6 offset-l6 xl5 offset-xl7">
+                <form action="{{ url_for('search') }}" method="post" >
+                    <input id="search" name="query" type="text" placeholder="Search:" required>
+                    <button type="submit">
+                        <i class="fas fa-search search-icon"></i>
+                    </button>
+                    <a href="{{ url_for('recommendation') }}">
+                        <i class="fas fa-redo-alt search-icon"></i>
+                    </a>
+                </form>
+            </div> 
+        </div>
+
+        <!-- List of books -->
+        <div class="recommendation-container row">
+            {% if book_lists|length > 0 %}
+            <ul class="col s12 m10 offset-m1 l8 offset-l2">
+                {% for list in book_lists %}
+                    {% if list.share_list == "on" %}
+                        <li>
+                            <div class="list-title">
+                                <div>
+                                    <i class="valign-wrapper fas fa-angle-right"></i>
+                                    <a href="{{ url_for('list_view', list_name=list._id) }}">
+                                        <h2 class="list-names">{{ list.list_name }}</h2>
+                                        <h3>by: {{ list.created_by.capitalize() }}</h3>
+                                    </a>
+                                </div>
+                                <a class="btn-small white" href="{{ url_for('list_view', list_name=list._id) }}">See books</a>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% else %}
+            <h4 class="center-align red-text col s12">No results found</h4>
+            {% endif %}
+        </div>
+	</div>
+{% endblock %}

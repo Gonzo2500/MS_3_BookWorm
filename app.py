@@ -278,6 +278,13 @@ def recommendation():
     return render_template("recommendation.html", book_lists=book_lists)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    book_lists = list(mongo.db.Lists.find({"$text": {"$search": query}}))
+    return render_template("recommendation.html", book_lists=book_lists)
+
+
 @app.route("/log_out")
 def log_out():
     session.pop("user")
