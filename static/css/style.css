@@ -446,7 +446,7 @@ footer {
   transform: scale(0.9);
 }
 
-.done-btn{
+.done-btn {
   background-color: rgb(0, 255, 207);
   color: #030416;
 }
@@ -600,12 +600,12 @@ footer {
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.add-field-button{
+.add-field-button {
   background: rgb(0, 255, 207);
   margin-left: 15px;
   margin-bottom: 5px;
 }
-.remove_field{
+.remove_field {
   background: #f56a40;
 }
 
@@ -638,7 +638,7 @@ footer {
 }
 .search-icon {
   background-color: rgb(0, 255, 207);
-  color:#030416;
+  color: #030416;
 }
 
 .list-title {
@@ -933,13 +933,13 @@ footer {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.container-error img{
+.container-error img {
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   max-width: 100vw;
   max-height: 70vh;
 }
@@ -976,152 +976,148 @@ footer {
 
 /*----------------- MEDIA SCREENS -------------------*/
 @media screen and (min-width: 1400px) {
-
   .home-img {
-      height: 500px;
-      width: 500px;
+    height: 500px;
+    width: 500px;
   }
   .book-container img {
-      height: 500px;
-      width: 330px;
+    height: 500px;
+    width: 330px;
   }
 }
 
 @media screen and (max-width: 1100px) {
-  
   .home-text-container {
-      width: 50%;
-      max-width: 420px;
+    width: 50%;
+    max-width: 420px;
   }
 
   .home-text-container h2 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .home-text-container p {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 
   .container-error {
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
-  .container-error img{
-      max-width: 700px;
+  .container-error img {
+    max-width: 700px;
   }
 }
 
 @media screen and (max-width: 576px) {
-
   .logo-name {
-      margin-left: 40px;
+    margin-left: 40px;
   }
 
   .home-text-container {
-      width: 90%;
+    width: 90%;
   }
 
   .home-text-container h2 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .home-text-container p {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 
   .bookworm-container {
-      width: 95%;
+    width: 95%;
   }
 
   .books,
   .book-container {
-      margin: 80px 5px 0 5px;
+    margin: 80px 5px 0 5px;
   }
 
   .books,
   .container-book-lists {
-      height: 85%;
+    height: 85%;
   }
 
   .book {
-      height: 220px;
+    height: 220px;
   }
 
   .book img {
-      height: 165px;
-      width: 120px;
+    height: 165px;
+    width: 120px;
   }
 
   .book p {
-      max-width: 120px;
+    max-width: 120px;
   }
 
   .book-summary {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 
   .container-book-lists h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .books-list img {
-      height: 390px;
-      width: 280px;
+    height: 390px;
+    width: 280px;
   }
 
   .books-list p {
-      max-width: 280px;
+    max-width: 280px;
   }
 
   .list-title a {
-      margin-right: 10px;
+    margin-right: 10px;
   }
 
   .buy-container {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 
   .buy-btn {
-      min-width: 100px;
-      margin: 0;
+    min-width: 100px;
+    margin: 0;
   }
 
   .buy-btn:nth-child(2) {
-      margin-right: 10px;
-      margin-left: 10px;
-      margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
 
   .welcome-user h2 {
-      font-size: 2.5rem;
-      margin-top: 0;
+    font-size: 2.5rem;
+    margin-top: 0;
   }
 
-  .container-error img{
-      max-width: 300px;
+  .container-error img {
+    max-width: 300px;
   }
 
   .error-text {
-      font-size: 2.4rem;
+    font-size: 2.4rem;
   }
 }
 
 @media screen and (max-height: 415px) {
   .bookworm-container {
-      height: 75%;
+    height: 75%;
   }
 
   .modal-books {
-      max-height: 75%;
+    max-height: 75%;
   }
-
 }
