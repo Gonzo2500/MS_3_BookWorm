@@ -17,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Home page
 @app.route("/")
 @app.route("/home")
 def home():
@@ -30,6 +31,7 @@ def home():
         return render_template("home.html")
 
 
+# Sign Up Page
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
     if request.method == 'POST':
@@ -56,6 +58,8 @@ def sign_up():
             "profile", username=session["user"]))
     return render_template("sign_up.html")
 
+
+# Login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -83,6 +87,7 @@ def login():
     return render_template("login.html")
 
 
+# Profil page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # get the session user's username from database
@@ -98,6 +103,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# add a book into database
 @app.route("/book_add", methods=["GET", "POST"])
 def book_add():
     if request.method == "POST":
@@ -112,12 +118,14 @@ def book_add():
         return redirect("/profile/<username>")
 
 
+# view book page
 @app.route("/view_book/<book_name>")
 def view_book(book_name):
     book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
     return render_template("view_book.html", book=book)
 
 
+# Edit a Book
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
@@ -134,6 +142,7 @@ def edit_book(book_id):
     return render_template("view_book.html", book=book)
 
 
+# Delete a Book
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
     mongo.db.Books.remove({"_id": ObjectId(book_id)})
@@ -141,6 +150,7 @@ def delete_book(book_id):
     return redirect("/profile/<username>")
 
 
+# My Books Page
 @app.route("/my_books/<username>", methods=["GET", "POST"])
 def my_books(username):
     # get the session user's username from database
@@ -156,6 +166,7 @@ def my_books(username):
     return redirect(url_for("login"))
 
 
+# Add a new list to database
 @app.route("/add_list", methods=["GET", "POST"])
 def add_list():
     if request.method == "POST":
@@ -170,6 +181,7 @@ def add_list():
         return redirect("/my_books/<username>")
 
 
+# List View Page
 @app.route("/list_view/<list_name>")
 def list_view(list_name):
     # get book lists from datase
@@ -188,6 +200,7 @@ def list_view(list_name):
         book_list=book_objects_list, list=book_list, username=username)
 
 
+# Edit book lists
 @app.route("/edit_list/<list_id>", methods=["GET", "POST"])
 def edit_list(list_id):
     if request.method == "POST":
@@ -232,6 +245,7 @@ def add_book_in_list(list_name):
     return redirect(url_for("list_view", list_name=book_list["_id"]))
 
 
+# Book info page
 @app.route("/book_info/<list_name>/<book_name>")
 def book_info(list_name, book_name):
     # book_lists = list(mongo.db.Lists.find()) CHECK IF WILL BE USED
@@ -258,6 +272,7 @@ def edit_book_in_list(list_name, book_id):
     return render_template("book_info.html", book=book, list=book_list)
 
 
+# Delete book from list
 @app.route("/delete_book_in_list/<list_name>/<book_id>")
 def delete_book_in_list(list_name, book_id):
     book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
@@ -272,12 +287,14 @@ def delete_book_in_list(list_name, book_id):
     return redirect(url_for("list_view", list_name=book_list["_id"]))
 
 
+# Recommendation page
 @app.route("/recommendation")
 def recommendation():
     book_lists = list(mongo.db.Lists.find())
     return render_template("recommendation.html", book_lists=book_lists)
 
 
+# search function, for book lists
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -285,21 +302,25 @@ def search():
     return render_template("recommendation.html", book_lists=book_lists)
 
 
+# Log out
 @app.route("/log_out")
 def log_out():
     session.pop("user")
     return redirect(url_for("home"))
 
 
+# 404 Page not found error
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('404.html', error=error), 404
 
+
+# 500 internal server error
 @app.errorhandler(500)
 def internal_error(error):
     return render_template('500.html', error=error), 500
 
-    
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
