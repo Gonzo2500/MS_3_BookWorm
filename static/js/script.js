@@ -99,7 +99,6 @@ $(document).ready(function () {
 
     let x = 1; //initlal text box count
     $(addButton).click(function (e) { //on add input button click
-        console.log('clicked')
         e.preventDefault();
         if (x < maxFields) { //max input box allowed
             x++; //text box increment
