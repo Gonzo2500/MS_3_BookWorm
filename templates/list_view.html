@@ -31,7 +31,7 @@
                 </div>
 
                 <!-- Add field button-->
-                <a class="add-field-button">Add Vendor</a>
+                <a class="add-field-button btn">Add Vendor</a>
 
                 <!-- Submit Button -->
                 <div class="row">
@@ -140,13 +140,13 @@
                 <div class="edit-buttons col s12">
                     <!-- This if statement was created to allow only the user who created the list be able to edit or delete it -->
                     {% if session.user|lower == list.created_by|lower %}
-                        <a class="sign-up-btn" href="{{ url_for('my_books', username=session['user']) }}">
+                        <a class="done-btn" href="{{ url_for('my_books', username=session['user']) }}">
                             Done <i class="fas fa-check white-text"></i>
                         </a>
                         <a id="edit-list" >Edit <i class="fas fa-edit white-text"></i></a>
                         <a id="delete-book">Delete <i class="fas fa-trash-alt white-text"></i></a>
                     {% else %}
-                        <a class="sign-up-btn white-text" href="{{ url_for('recommendation') }}">
+                        <a class="done-btn white-text" href="{{ url_for('recommendation') }}">
                             Done <i class="fas fa-check white-text"></i>
                         </a>
                     {% endif %} 

@@ -25,7 +25,7 @@
         <!-- Buttons -->
         <div class="row">
             <div class="edit-buttons col s12">
-                <a class="sign-up-btn" href="{{ url_for('list_view', list_name=list._id) }}">
+                <a class="done-btn" href="{{ url_for('list_view', list_name=list._id) }}">
                     Done <i class="fas fa-check white-text"></i>
                 </a>
                 {% if session.user|lower == list.created_by|lower %}
