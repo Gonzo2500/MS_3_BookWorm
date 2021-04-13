@@ -960,3 +960,155 @@ footer {
   text-align: center;
   color: rgb(0, 255, 207);
 }
+
+/*----------------- MEDIA SCREENS -------------------*/
+@media screen and (min-width: 1400px) {
+
+  .home-img {
+      height: 500px;
+      width: 500px;
+  }
+  .book-container img {
+      height: 500px;
+      width: 330px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  
+  .home-text-container {
+      width: 50%;
+      max-width: 420px;
+  }
+
+  .home-text-container h2 {
+      font-size: 2.5rem;
+  }
+
+  .home-text-container p {
+      font-size: 1.2rem;
+  }
+
+  .container-error {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+  }
+
+  .container-error img{
+      max-width: 700px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .logo-name {
+      margin-left: 40px;
+  }
+
+  .home-text-container {
+      width: 90%;
+  }
+
+  .home-text-container h2 {
+      font-size: 2.5rem;
+  }
+
+  .home-text-container p {
+      font-size: 1.2rem;
+  }
+
+  .bookworm-container {
+      width: 95%;
+  }
+
+  .books,
+  .book-container {
+      margin: 80px 5px 0 5px;
+  }
+
+  .books,
+  .container-book-lists {
+      height: 85%;
+  }
+
+  .book {
+      height: 220px;
+  }
+
+  .book img {
+      height: 165px;
+      width: 120px;
+  }
+
+  .book p {
+      max-width: 120px;
+  }
+
+  .book-summary {
+      margin-top: 10px;
+  }
+
+  .container-book-lists h1 {
+      font-size: 2.5rem;
+  }
+
+  .books-list img {
+      height: 390px;
+      width: 280px;
+  }
+
+  .books-list p {
+      max-width: 280px;
+  }
+
+  .list-title a {
+      margin-right: 10px;
+  }
+
+  .buy-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+  }
+
+  .buy-btn {
+      min-width: 100px;
+      margin: 0;
+  }
+
+  .buy-btn:nth-child(2) {
+      margin-right: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+  }
+
+  .welcome-user h2 {
+      font-size: 2.5rem;
+      margin-top: 0;
+  }
+
+  .container-error img{
+      max-width: 300px;
+  }
+
+  .error-text {
+      font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-height: 415px) {
+  .bookworm-container {
+      height: 75%;
+  }
+
+  .modal-books {
+      max-height: 75%;
+  }
+
+}
