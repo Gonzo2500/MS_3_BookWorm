@@ -1,45 +1,102 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BooksWorm
 
-Welcome Maximilian Dazer,
+![Project Mock-up](static/images/ms3_header.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+This project aims is to provide a place where the user can write down a personal summary of a book and the main insights they 
+got from reading a book.
+Also, the user will be able to create any list of books they want and share with other users if desired.
 
-## Gitpod Reminders
+## Live demo on Heroku pages [HERE](http://bookworm-ms3.herokuapp.com/home)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents:
 
-`python3 -m http.server`
+- [UX](#ux)
+  - [User Stories](#user-stories)
+  - [Strategy](#1-strategy)
+  - [Scope](#2-scope)
+  - [Structure](#3-structure)
+  - [Skeleton](#4-skeleton)
+  - [Surface](#5-surface)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Features for the future](#Features for the future)
+- [Technologies Used](#technologies-used)
+  - [Languages](#1-languages)
+  - [Integrations](#2-integrations)
+  - [Workspace, Version Control, and Repository Storage](#3-workspace-version-control-and-repository-storage)
+- [Resources](#resources)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+  - [Media](#media)
+  - [Code](#code)
+- [Acknowledgments](#acknowledgments)
 
-A blue button should appear to click: *Make Public*,
+## UX
 
-Another blue button should appear to click: *Open Browser*.
+### User Stories
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- As a user, I want to easily understand the main purpose of the site and learn more about the organisation.
+- As a user, I want to easily sign up to the website.
+- As a user, I want to easily log in on my account.
+- As a user, I want to write personal summaries and main insights about the books I'm reading or already read.
+- As a user, I want to create a list of books and share it with other users.
+- As a user, I want to find list of books from other people and get inspired to read other books.
+- As a user, I want to a way to buy the books in the lists.
+- As a user, I want to update or delete old book summaries and lists of books.
 
-A blue button should appear to click: *Make Public*,
+### 1. Strategy
 
-Another blue button should appear to click: *Open Browser*.
+- Provide a platform where the user can create personal summaries about books they read.
+- Provide a platform where user can create a list of books and share it with other users if they want.
+- Create an enjoyable, and easy to use platform that makes the user uses it frequently.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### 2. Scope
 
-## Updates Since The Instructional Video
+- Fits in with  current skill-set of HTML, CSS, JavaScript, Python, Flask and MongoDB.
+- Easy way to sign up into the website with Sign Up Button for new users.
+- Easy way to log in into the website.
+- Allow the user to create, read, update and delete their personal reviews.
+- Allow the user to create, read, update, delete and share their wish lists.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### 3. Structure
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+As the website has two main ideas, create personal book summaries and lists of books, the website is kept as simple possible 
+and easy to use.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- A part of the home page, every page has the same structure to keep consistency and to make the navigation easy to assimilate.
+- The modals in different pages are very similar to each other to keep consistency.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### 4. Skeleton
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- [Wireframes](static/wireframes)
+- Navigation bar - Menu with links pointing to each page
+  - **Home** -  A short description letting the user knows what the website is about.
+  - **Sign Up / Log In** - Very similar design to keep consistency and be user friendly.
+  - **Profile** - After users sign up, they are redirected to their profile with a flash message welcoming them and advise to create 
+  their first book summary.
+  - **My Books** - A very similar design of the profile page. Until users create their first list a message will be display 
+  encouraging then to do it.
+  - **View Books / View Lists** - Two similar pages where the user can see books and lists with more details. Also, they can edit 
+  and delete it.
+  - **Recommendation** - Allows the users to see the shared list from other users. The same design from My Books page used to keep familiarity.
+- Database Diagram
+![Project Mock-up](static/images/database.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### 5. Surface
+The overall UX is clean and similar in all pages to keep consistency.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Colors:
+The basic colors used are a light blue #00B0FF, a darker blue #0031FF and a light green #00FFCF building an analogous color palette. Some different blue/light green tones were 
+also chosen to enhance the design.
+![Palette of colors](static/images/colors_ms3.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Typography :
 
---------
+"Roboto" font (with fall-back font of Sans-Serif) is used in all website. Unless the logo that uses "Mukta" font (with fall-back 
+font of Sans-Serif).
 
-Happy coding!
+### Images:
+Only a few images were used in the website and all of them have #00FFCF colour, as a base colour and them different tones.
+
+## Features
