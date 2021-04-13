@@ -1,4 +1,4 @@
-# Books' World
+# BooksWorm
 
 ![Project Mock-up](static/images/ms3_header.png)
 
