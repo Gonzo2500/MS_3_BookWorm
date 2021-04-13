@@ -9,14 +9,13 @@
             <!-- Book Name-->
             <div class="row input-field col s12">
                 <label for="book_name">Book:</label>
-                <input id="book_name" name="book_name" type="text" class="validate" minlength="3" maxlength="50"
-                    required>
+                <input id="book_name" name="book_name" type="text" class="validate" minlength="3" maxlength="50" pattern ="\S(.*\S)?" required>
             </div>
 
             <!-- Book Author -->
             <div class="row input-field col s12">
                 <label for="book_author">Author:</label>
-                <input id="book_author" name="book_author" type="text" class="validate" minlength="3" maxlength="50"
+                <input id="book_author" name="book_author" type="text" class="validate" minlength="3" maxlength="50" pattern ="\S(.*\S)?$/"
                     required>
             </div>
             <!-- Book Genre -->
@@ -38,14 +37,14 @@
             <!-- Image URL -->
             <div class="row input-field col s12">
                 <label for="img_url">Insert image URL</label>
-                <input id="img_url" name="img_url" type="text" class="validate" minlength="5" maxlength="100" required>
+                <input id="img_url" name="img_url" type="text" class="validate" minlength="5" maxlength="100" pattern ="\S(.*\S)?" required>
             </div>
 
             <!-- Review -->
             <div class="row col s12">
                 <label for="book_review">Your Book Review</label>
                 <textarea id="book_review" name="book_review" type="text" class="materialize-textarea" minlength="5"
-                    maxlength="5000" rows="5" required></textarea>
+                    maxlength="5000" rows="5" pattern ="\S(.*\S)?" required></textarea>
             </div>
 
             <!-- Submit Button -->

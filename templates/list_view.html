@@ -7,26 +7,26 @@
                 <!-- Book Name-->
                 <div class="input-field col s12">
                     <label for="book_name">Book:</label>
-                    <input id="book_name" name="book_name" type="text" class="validate" minlength="3" maxlength="50" required>
+                    <input id="book_name" name="book_name" type="text" class="validate" minlength="3" maxlength="50" pattern ="\S(.*\S)?" required>
                 </div>
     
                 <!-- Book Author -->
                 <div class="input-field col s12">
                     <label for="book_author">Author:</label>
-                    <input id="book_author" name="book_author" type="text" class="validate" minlength="3" maxlength="50"  required>
+                    <input id="book_author" name="book_author" type="text" class="validate" minlength="3" maxlength="50" pattern ="\S(.*\S)?" required>
                 </div>
 
                     <!-- Image URL -->
                 <div class="input-field col s12">
                     <label for="img_url">Image URL:</label>
-                    <input id="img_url" name="img_url" type="text" class="validate" minlength="5" maxlength="100"  required>
+                    <input id="img_url" name="img_url" type="text" class="validate" minlength="5" maxlength="100" pattern ="\S(.*\S)?" required>
                 </div>
 
                 <!-- Vendor URL -->
                 <div class="container-inputs s12">
                     <div class="input-field col s12 add-vendor">
                         <label for="vendor_url">Vendor URL:</label>
-                        <input id="vendor_url" name="vendor_url" type="text" class="validate" minlength="5" maxlength="100" required>
+                        <input id="vendor_url" name="vendor_url" type="text" class="validate" minlength="5" maxlength="100" pattern ="\S(.*\S)?" required>
                     </div>
                 </div>
 
