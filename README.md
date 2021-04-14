@@ -30,7 +30,6 @@ Also, the user will be able to create any list of books they want and share with
 - [Credits](#credits)
   - [Media](#media)
   - [Code](#code)
-- [Acknowledgments](#acknowledgments)
 
 ## UX
 
