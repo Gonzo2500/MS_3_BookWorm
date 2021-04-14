@@ -126,7 +126,7 @@ def view_book(book_name):
         return render_template("view_book.html", book=book)
     else:
         flash("Please Log In to have Access")
-        return render_template("home.html")
+        return redirect("home.html")
 
 
 # Edit a Book
@@ -147,7 +147,7 @@ def edit_book(book_id):
             return render_template("view_book.html", book=book)
         else:
             flash("Please Log In to have Access")
-            return render_template("home.html")
+            return redirect("home.html")
 
 # Delete a Book
 @app.route("/delete_book/<book_id>")
