@@ -40,7 +40,9 @@ nav {
   margin-left: 30px;
   letter-spacing: -1px;
 }
-
+.logo-color{
+  color:rgb(0, 255, 207);
+}
 nav ul a {
   margin-right: 20px;
   font-weight: 500;
@@ -50,6 +52,14 @@ nav ul a {
 
 nav ul a:hover {
   background: none;
+  color: #fafafa;
+}
+
+.active {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  font-weight: 600;
   color: #fafafa;
 }
 
@@ -146,10 +156,6 @@ footer {
 .home-text-container > p > span {
   font-weight: 500;
   font-family: "Mukta", sans-serif;
-}
-
-.home-text-container > p > span > span {
-  color: #030416;
 }
 
 .home-text-container a {
