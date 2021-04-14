@@ -163,7 +163,7 @@ correctly.
 
 ## Testing
 
-Testing documentation can be found [HERE](static/testing/TESTING.md)
+Testing documentation can be found [HERE](static/testing/testing.md)
 
 ## Deployment
 
