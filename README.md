@@ -115,6 +115,7 @@ Only a few images were used in the website and all of them have #00FFCF colour, 
 - Sign Up with email, lost password functionality
 - Like and Dislike functionality
 - Add a page where you can filter and search for all books on the site
+- Add catergories to the book, for filtering purpose
 
 ## Technologies Used
 
