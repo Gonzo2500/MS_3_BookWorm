@@ -124,9 +124,8 @@ def view_book(book_name):
     if "user" in session:
         book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
         return render_template("view_book.html", book=book)
-    else:
-        flash("Please Log In to have Access")
-        return render_template("home.html")
+    flash("Please Log In to have Access")
+    return render_template("home.html")
 
 
 # Edit a Book
@@ -144,10 +143,9 @@ def edit_book(book_id):
             mongo.db.Books.update({"_id": ObjectId(book_id)}, edited_book)
 
             book = mongo.db.Books.find_one({"_id": ObjectId(book_id)})
-            return render_template("view_book.html", book=book)
-        else:
-            flash("Please Log In to have Access")
-            return render_template("home.html")
+            return render_template("view_book.html", book=book)       
+        flash("Please Log In to have Access")
+        return render_template("home.html")
 
 # Delete a Book
 @app.route("/delete_book/<book_id>")
