@@ -121,7 +121,7 @@ def book_add():
 # view book page
 @app.route("/view_book/<book_name>")
 def view_book(book_name):
-    if session["user"]:
+    if "user" in session:
         book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
         return render_template("view_book.html", book=book)
     else:
@@ -133,7 +133,7 @@ def view_book(book_name):
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
-        if session["user"]:
+        if "user" in session:
             edited_book = {
                 "book_name": request.form.get("book_name"),
                 "book_author": request.form.get("book_author"),
