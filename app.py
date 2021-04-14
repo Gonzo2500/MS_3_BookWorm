@@ -175,39 +175,35 @@ def my_books(username):
 @app.route("/add_list", methods=["GET", "POST"])
 def add_list():
     if request.method == "POST":
-        if session["user"]:
-            share_list = "on" if request.form.get("share_list") else "off"
-            list = {
-                "list_name": request.form.get("list_name"),
-                "share_list": share_list,
-                "created_by": session["user"],
-                "books": []
-            }
-            mongo.db.Lists.insert_one(list)
-            return redirect("/my_books/<username>")
-         return redirect(url_for("login"))
+        share_list = "on" if request.form.get("share_list") else "off"
+        list = {
+            "list_name": request.form.get("list_name"),
+            "share_list": share_list,
+            "created_by": session["user"],
+            "books": []
+        }
+        mongo.db.Lists.insert_one(list)
+        return redirect("/my_books/<username>")
 
 
 # List View Page
 @app.route("/list_view/<list_name>")
 def list_view(list_name):
-    if session["user"]:
-        # get book lists from datase
-        book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
+    # get book lists from datase
+    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
-        # Append new book into a book list
-        book_objects_list = []
-        for book in book_list['books']:
-            book_item = mongo.db.Books_in_list.find_one({'_id': ObjectId(book)})
-            book_objects_list.append(book_item)
+    # Append new book into a book list
+    book_objects_list = []
+    for book in book_list['books']:
+        book_item = mongo.db.Books_in_list.find_one({'_id': ObjectId(book)})
+        book_objects_list.append(book_item)
 
-        return render_template(
-            "list_view.html",
-            book_list=book_objects_list, list=book_list, username=username)
-    flash("Please Log In to have Access")
-    return redirect(url_for("login"))
+    return render_template(
+        "list_view.html",
+        book_list=book_objects_list, list=book_list, username=username)
+    
 
 
 # Edit book lists
