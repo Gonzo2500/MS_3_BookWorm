@@ -108,6 +108,6 @@ only the creator of the list can use these buttons.
 ## Responsive Test
 - Test responsiveness of website on all screen sizes using different browsers(Google Chome, Safari, Firefox and Microsoft Edge)
     - Using Devtools test if everything displays as it should from 300px width up to 1920px.
-- Viewed of different physical devices:HTC U Ultra(375px), Iphone 5 ,Iphone X, Ipad,  laptop, 
+- Viewed of different physical devices:HTC U Ultra, Iphone 5 ,Iphone X, Ipad,  laptop, 
  desktop screen.
 - Repeat test in all pages.
