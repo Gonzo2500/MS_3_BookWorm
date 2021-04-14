@@ -110,3 +110,9 @@ $(document).ready(function () {
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 });
+
+// Add Active Navigation Class Based on URL
+// https://css-tricks.com/snippets/jquery/add-active-navigation-class-based-on-url/
+$(function () {
+    $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+});
