@@ -19,7 +19,7 @@ Also, the user will be able to create any list of books they want and share with
   - [Surface](#5-surface)
 - [Features](#features)
   - [Existing Features](#existing-features)
-  - [Features for the future](#Features for the future)
+  - [Features for the future](#features-for-the-future)
 - [Technologies Used](#technologies-used)
   - [Languages](#1-languages)
   - [Integrations](#2-integrations)
@@ -163,3 +163,38 @@ correctly.
 ## Testing
 
 Testing documentation can be found [HERE](static/testing/TESTING.md)
+
+## Deployment
+
+### Project Creation
+- To create this project the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
+- Then create new repository from template page and entered in desired repository name, then click create 
+repository from template button.
+- Once created, navigate to new repository on GitHub and clicke the Gitpod button which will built the workspace.
+
+### Deployment to Heroku
+This project is deployed and hosted on [Heroku](https://www.heroku.com/).
+- Navigate to [Heroku](https://www.heroku.com/) and login.
+- On the dashboard, click on the 'New' button and select 'Create new app'.
+- Enter the app name and select a region.
+- Under the 'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file. This includes the IP, Port, 
+Secret key, MongoDB name and URI, as well as mail settings for Flask Mail.
+- In the menu select the 'Deploy' option.
+- Under 'Deployment method' select the GitHub option to connect to your GitHub repository. Ensure GitHub username is selected and 
+use the search function to find the relevant repository.
+- Select Automatic deploys from the main branch and click 'Deploy Branch'.
+
+### Cloning
+- The code can be run locally through clone or download from the repository on GitHub.
+- You can do this by opening the repository, clicking on the green 'Code' button and selecting either 'clone or download'.
+- The Clone option provides a URL, which you can use on your CLI with **git clone <url>**.
+- The Download ZIP option provides a link to download a ZIP file which can be unzipped on your local machine. The files can then 
+be uploaded to your IDE
+
+## Credits
+### Media
+**Illustrations**:
+- [Undraw](https://undraw.co/)
+
+### Code
+- Dynamically add input fields from Stack Overflow [here](https://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery).
