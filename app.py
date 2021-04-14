@@ -121,26 +121,33 @@ def book_add():
 # view book page
 @app.route("/view_book/<book_name>")
 def view_book(book_name):
-    book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
-    return render_template("view_book.html", book=book)
+    if session["user"]:
+        book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
+        return render_template("view_book.html", book=book)
+    else:
+        flash("Please Log In to have Access")
+        return render_template("home.html")
 
 
 # Edit a Book
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
-        edited_book = {
-            "book_name": request.form.get("book_name"),
-            "book_author": request.form.get("book_author"),
-            "img_url": request.form.get("img_url"),
-            "book_review": request.form.get("book_review"),
-            "created_by": session["user"]
-        }
-        mongo.db.Books.update({"_id": ObjectId(book_id)}, edited_book)
+        if session["user"]:
+            edited_book = {
+                "book_name": request.form.get("book_name"),
+                "book_author": request.form.get("book_author"),
+                "img_url": request.form.get("img_url"),
+                "book_review": request.form.get("book_review"),
+                "created_by": session["user"]
+            }
+            mongo.db.Books.update({"_id": ObjectId(book_id)}, edited_book)
 
-    book = mongo.db.Books.find_one({"_id": ObjectId(book_id)})
-    return render_template("view_book.html", book=book)
-
+            book = mongo.db.Books.find_one({"_id": ObjectId(book_id)})
+            return render_template("view_book.html", book=book)
+        else:
+            flash("Please Log In to have Access")
+            return render_template("home.html")
 
 # Delete a Book
 @app.route("/delete_book/<book_id>")
