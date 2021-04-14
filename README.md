@@ -100,3 +100,66 @@ font of Sans-Serif).
 Only a few images were used in the website and all of them have #00FFCF colour, as a base colour and them different tones.
 
 ## Features
+### Existing Features
+
+- Designed with HTML5, CSS3, JavaScript, Python3, Flask, MongoDB and Materalize.
+- Responsive navigation bar.
+- Button to create book summaries and enter information into a modal.
+- Button to create a list of books.
+- Button to share a list of books.
+- Section where user can edit and delete summaries and lists.
+- Footer with social media links.
+
+### Features to consider implementing in the future
+
+- Sign Up with email, lost password functionality
+- Like and Dislike functionality
+- Add a page where you can filter and search for all books on the site
+
+## Technologies Used
+
+### 1. Languages
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+### 2. Integrations
+
+- [Google Fonts](https://fonts.google.com/) - Typography.
+- [FontAwesome](https://fontawesome.com/) - Used for icons.
+- [Materalize](https://materializecss.com/) - CSS framework.
+- [jQuery](https://jquery.com/) - JavaScript library.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Micro web framework written in Python.
+- [MongoDB](https://www.mongodb.com/) - NoSQL database program, using JSON-like documents.
+
+### 3. Workspace, version control, and repository storage
+
+- [Gitpod](https://www.gitpod.io/) - IDE (Integrated Development Environment) used to write the code.
+- [GitHub](https://github.com/) - Repository hosting service to host the deployed website and track previous versions of code.
+- [Git](https://git-scm.com/) - Version control tool to record changes and updates to my files.
+- [Heroku](https://www.heroku.com/) - Container-based cloud platform for deployment and running of apps.
+
+## Resources
+
+- [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
+- [Stack Overflow](https://pt.stackoverflow.com/) - General resource.
+- [Youtube](https://www.youtube.com/) - General resource.
+- [CommonMark](https://commonmark.org/) - For Markdown language reference.
+- [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+- [Autoprefixer](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
+- Code Institute SLACK Community - General Resource
+
+## Code Validation
+
+- [W3C](https://validator.w3.org/) - HTML Markup Validation.
+- [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) - Validates all tags are opening and closing 
+correctly.
+- [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation.
+- [JSHINT](https://jshint.com/) - JavaScript code warning & error check.
+- [PEP8 online](http://pep8online.com/) - PEP8 validator.
+
+## Testing
+
+Testing documentation can be found [HERE](static/testing/TESTING.md)
