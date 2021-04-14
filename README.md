@@ -19,7 +19,7 @@ Also, the user will be able to create any list of books they want and share with
   - [Surface](#5-surface)
 - [Features](#features)
   - [Existing Features](#existing-features)
-  - [Features for the future](#Features for the future)
+  - [Features for the future](#features-for-the-future)
 - [Technologies Used](#technologies-used)
   - [Languages](#1-languages)
   - [Integrations](#2-integrations)
@@ -100,3 +100,101 @@ font of Sans-Serif).
 Only a few images were used in the website and all of them have #00FFCF colour, as a base colour and them different tones.
 
 ## Features
+### Existing Features
+
+- Designed with HTML5, CSS3, JavaScript, Python3, Flask, MongoDB and Materalize.
+- Responsive navigation bar.
+- Button to create book summaries and enter information into a modal.
+- Button to create a list of books.
+- Button to share a list of books.
+- Section where user can edit and delete summaries and lists.
+- Footer with social media links.
+
+### Features to consider implementing in the future
+
+- Sign Up with email, lost password functionality
+- Like and Dislike functionality
+- Add a page where you can filter and search for all books on the site
+
+## Technologies Used
+
+### 1. Languages
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+### 2. Integrations
+
+- [Google Fonts](https://fonts.google.com/) - Typography.
+- [FontAwesome](https://fontawesome.com/) - Used for icons.
+- [Materalize](https://materializecss.com/) - CSS framework.
+- [jQuery](https://jquery.com/) - JavaScript library.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Micro web framework written in Python.
+- [MongoDB](https://www.mongodb.com/) - NoSQL database program, using JSON-like documents.
+
+### 3. Workspace, version control, and repository storage
+
+- [Gitpod](https://www.gitpod.io/) - IDE (Integrated Development Environment) used to write the code.
+- [GitHub](https://github.com/) - Repository hosting service to host the deployed website and track previous versions of code.
+- [Git](https://git-scm.com/) - Version control tool to record changes and updates to my files.
+- [Heroku](https://www.heroku.com/) - Container-based cloud platform for deployment and running of apps.
+
+## Resources
+
+- [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) - General resource.
+- [Stack Overflow](https://pt.stackoverflow.com/) - General resource.
+- [Youtube](https://www.youtube.com/) - General resource.
+- [CommonMark](https://commonmark.org/) - For Markdown language reference.
+- [Balsamiq](https://balsamiq.com/wireframes/) - Wireframing design tool.
+- [Autoprefixer](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
+- Code Institute SLACK Community - General Resource
+
+## Code Validation
+
+- [W3C](https://validator.w3.org/) - HTML Markup Validation.
+- [Closing Tag Checker for HTML5](https://www.aliciaramirez.com/closing-tags-checker/) - Validates all tags are opening and closing 
+correctly.
+- [W3C](https://jigsaw.w3.org/css-validator/) - CSS Validation.
+- [JSHINT](https://jshint.com/) - JavaScript code warning & error check.
+- [PEP8 online](http://pep8online.com/) - PEP8 validator.
+
+## Testing
+
+Testing documentation can be found [HERE](static/testing/TESTING.md)
+
+## Deployment
+
+### Project Creation
+- To create this project the [CI Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template).
+- Then create new repository from template page and entered in desired repository name, then click create 
+repository from template button.
+- Once created, navigate to new repository on GitHub and clicke the Gitpod button which will built the workspace.
+
+### Deployment to Heroku
+This project is deployed and hosted on [Heroku](https://www.heroku.com/).
+- Navigate to [Heroku](https://www.heroku.com/) and login.
+- On the dashboard, click on the 'New' button and select 'Create new app'.
+- Enter the app name and select a region.
+- Under the 'Settings' tab, click on 'Config Vars' to add Configuration Variables from the env.py file. This includes the IP, Port, 
+Secret key, MongoDB name and URI, as well as mail settings for Flask Mail.
+- In the menu select the 'Deploy' option.
+- Under 'Deployment method' select the GitHub option to connect to your GitHub repository. Ensure GitHub username is selected and 
+use the search function to find the relevant repository.
+- Select Automatic deploys from the main branch and click 'Deploy Branch'.
+
+### Cloning
+- The code can be run locally through clone or download from the repository on GitHub.
+- You can do this by opening the repository, clicking on the green 'Code' button and selecting either 'clone or download'.
+- The Clone option provides a URL, which you can use on your CLI with **git clone <url>**.
+- The Download ZIP option provides a link to download a ZIP file which can be unzipped on your local machine. The files can then 
+be uploaded to your IDE
+
+## Credits
+### Media
+**Illustrations**:
+- [Undraw](https://undraw.co/)
+
+### Code
+- Dynamically add input fields from Stack Overflow [here](https://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery).
