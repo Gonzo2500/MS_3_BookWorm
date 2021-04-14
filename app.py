@@ -125,7 +125,7 @@ def view_book(book_name):
         book = mongo.db.Books.find_one({"_id": ObjectId(book_name)})
         return render_template("view_book.html", book=book)
     flash("Please Log In to have Access")
-    return render_template("home.html")
+    return redirect(url_for("login"))
 
 
 # Edit a Book
@@ -143,9 +143,9 @@ def edit_book(book_id):
             mongo.db.Books.update({"_id": ObjectId(book_id)}, edited_book)
 
             book = mongo.db.Books.find_one({"_id": ObjectId(book_id)})
-            return render_template("view_book.html", book=book)       
+            return render_template("view_book.html", book=book)
         flash("Please Log In to have Access")
-        return render_template("home.html")
+        return redirect(url_for("login"))
 
 # Delete a Book
 @app.route("/delete_book/<book_id>")
@@ -167,7 +167,7 @@ def my_books(username):
     if session["user"]:
         return render_template(
             "my_books.html", username=username, book_lists=book_lists)
-
+    flash("Please Log In to have Access")
     return redirect(url_for("login"))
 
 
@@ -175,34 +175,39 @@ def my_books(username):
 @app.route("/add_list", methods=["GET", "POST"])
 def add_list():
     if request.method == "POST":
-        share_list = "on" if request.form.get("share_list") else "off"
-        list = {
-            "list_name": request.form.get("list_name"),
-            "share_list": share_list,
-            "created_by": session["user"],
-            "books": []
-        }
-        mongo.db.Lists.insert_one(list)
-        return redirect("/my_books/<username>")
+        if session["user"]:
+            share_list = "on" if request.form.get("share_list") else "off"
+            list = {
+                "list_name": request.form.get("list_name"),
+                "share_list": share_list,
+                "created_by": session["user"],
+                "books": []
+            }
+            mongo.db.Lists.insert_one(list)
+            return redirect("/my_books/<username>")
+         return redirect(url_for("login"))
 
 
 # List View Page
 @app.route("/list_view/<list_name>")
 def list_view(list_name):
-    # get book lists from datase
-    book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    if session["user"]:
+        # get book lists from datase
+        book_list = mongo.db.Lists.find_one({"_id": ObjectId(list_name)})
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
 
-    # Append new book into a book list
-    book_objects_list = []
-    for book in book_list['books']:
-        book_item = mongo.db.Books_in_list.find_one({'_id': ObjectId(book)})
-        book_objects_list.append(book_item)
+        # Append new book into a book list
+        book_objects_list = []
+        for book in book_list['books']:
+            book_item = mongo.db.Books_in_list.find_one({'_id': ObjectId(book)})
+            book_objects_list.append(book_item)
 
-    return render_template(
-        "list_view.html",
-        book_list=book_objects_list, list=book_list, username=username)
+        return render_template(
+            "list_view.html",
+            book_list=book_objects_list, list=book_list, username=username)
+    flash("Please Log In to have Access")
+    return redirect(url_for("login"))
 
 
 # Edit book lists
